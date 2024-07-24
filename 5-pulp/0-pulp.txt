@@ -1,0 +1,39 @@
+--
+https://pypi.org/project/PuLP/
+PuLP 2.8.0, Released: Jan 12, 2024
+
+https://coin-or.github.io/pulp/
+Optimization with PuLP
+
+https://www.coin-or.org/
+Open Source for the Operations Research Community
+
+https://www.coin-or.org/projects/
+
+Optimization deterministic linear continuous
+    CLP: A simplex solver. 
+Optimization deterministic linear discrete
+    CBC: An LP-based branch-and-cut library
+Modeling systems
+    PuLP: A Python library for modeling linear and integer programs
+
+https://coin-or.github.io/pulp/index.html
+Optimization with PuLP (documentation)
+
+https://github.com/coin-or/pulp (github)
+
+PuLP is an LP modeler written in Python. 
+
+PuLP can generate MPS or LP files and call 
+    GLPK, COIN-OR CLP/CBC, CPLEX, GUROBI, MOSEK, 
+    XPRESS, CHOCO, MIPCL, HiGHS, SCIP/FSCIP 
+    to solve linear problems.
+
+Installation
+------------
+pip install pulp
+
+https://github.com/coin-or/pulp/tree/master/examples
+See the examples directory for examples.
+
+The examples use the default solver (CBC).
