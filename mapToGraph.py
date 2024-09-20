@@ -16,6 +16,7 @@ G = nx.Graph()
 for _, stop in stops.iterrows():
     G.add_node(stop['stop_id'], pos=(stop['stop_lon'], stop['stop_lat']))
 
+
 # Add edges based on stop_times
 for trip_id in stop_times['trip_id'].unique():
     trip_stop_times = stop_times[stop_times['trip_id'] == trip_id].sort_values('stop_sequence')
@@ -23,6 +24,24 @@ for trip_id in stop_times['trip_id'].unique():
         stop_start_id = trip_stop_times.iloc[i]['stop_id']
         stop_end_id = trip_stop_times.iloc[i + 1]['stop_id']
         G.add_edge(stop_start_id, stop_end_id, weight=10*(random.random()))  # or use distance if available
+
+# Ensure symmetry in the edges of an undirected graph
+for u, v in G.edges():
+    if not G.has_edge(v, u):
+        G.add_edge(v, u)
+        
+if nx.is_connected(G): print("The graph is connected")
+else: print("The graph is not connected")
+
+if nx.is_directed(G): print("The graph is directed")
+else: print("The graph is undirected")
+
+# Assuming G is your graph object
+components = list(nx.connected_components(G))
+
+# Display the components
+for i, component in enumerate(components):
+    print(f"Component {i+1}: {component}")
 
 # Initialize plot
 pos = {stop['stop_id']: (stop['stop_lon'], stop['stop_lat']) for _, stop in stops.iterrows()}
@@ -33,7 +52,8 @@ nx.draw_networkx_edges(G, pos, ax=ax)
 
 # Plot nodes using scatter to make them clickable
 node_positions = [pos[node] for node in G.nodes()]
-nodes = ax.scatter([x for x, y in node_positions], [y for x, y in node_positions], s=50, c="blue", picker=True)
+node_colors = ['blue'] * len(G.nodes())  # Initial color for all nodes
+nodes = ax.scatter([x for x, y in node_positions], [y for x, y in node_positions], s=50, c=node_colors, picker=True)
 
 selected_nodes = []
 path_edges = None  # This will store the current path edges plot object
@@ -47,7 +67,13 @@ def clear_previous_path():
         path_edges = None
         plt.draw()
 
-def on_click(event, algorithm='dj'):
+def update_node_colors():
+    """Update the node colors on the plot."""
+    node_colors = ['green' if node in selected_nodes else 'blue' for node in G.nodes()]
+    nodes.set_color(node_colors)  # Update the scatter plot with new colors
+    plt.draw()
+
+def on_click(event, algorithm='lp'):
     # Check if a node was clicked based on proximity
     if event.inaxes is not None:
         x, y = event.xdata, event.ydata
@@ -55,6 +81,7 @@ def on_click(event, algorithm='dj'):
 
         print(f"Selected node: {closest_node}")
         selected_nodes.append(closest_node)
+        update_node_colors()  # Update the color of selected nodes
         start = selected_nodes[0]
         end = selected_nodes[-1]
         if len(selected_nodes) == 2:
@@ -98,6 +125,7 @@ def on_click(event, algorithm='dj'):
             selected_nodes.clear()
             clear_previous_path()
             selected_nodes.append(closest_node)  # Add the new node as the first in the new selection
+            update_node_colors()  # Reset node colors
 
 # Connect the event handler
 fig.canvas.mpl_connect('button_press_event', on_click)
