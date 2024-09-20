@@ -36,7 +36,7 @@ def dijkstra(graph, start):
 
     return distances, previous
 
-# Example usage
+#Example usage
 graph = {
     'A': {'B': 2, 'C': 1},
     'B': {'D': 4, 'E': 6},
@@ -47,7 +47,8 @@ graph = {
 }
 
 start_node = 'A'
-end_node = 'E'
+end_node = 'F'
+
 
 # Measure the execution time
 start_time = time.time()
