@@ -1,50 +1,7 @@
-import folium
-import osmnx as ox
-import networkx as nx
-import sys
-
-def create_map_with_route(start_point, end_point, location='New York City, New York, USA'):
-    try:
-        # Download the street network for the specified location
-        G = ox.graph_from_place(location, network_type='drive')
-        
-        # Convert points to the nearest nodes in the graph
-        start_node = ox.distance.nearest_nodes(G, X=start_point[1], Y=start_point[0])
-        end_node = ox.distance.nearest_nodes(G, X=end_point[1], Y=end_point[0])
-        
-        # Use Dijkstra's algorithm to find the shortest path
-        shortest_path = nx.shortest_path(G, source=start_node, target=end_node, weight='length')
-        
-        # Create a Folium map centered around the start point
-        mymap = folium.Map(location=start_point, zoom_start=14)
-        
-        # Add markers for start and end points
-        folium.Marker(start_point, popup='Start Point').add_to(mymap)
-        folium.Marker(end_point, popup='End Point').add_to(mymap)
-        
-        # Add the route
-        route_coords = [(G.nodes[node]['y'], G.nodes[node]['x']) for node in shortest_path]
-        folium.PolyLine(route_coords, color='blue', weight=5, opacity=0.8).add_to(mymap)
-        
-        # Save the map
-        mymap.save("route_map_with_markers.html")
-        print("Map saved as route_map_with_markers.html")
-    
-    except ImportError as e:
-        print(f"ImportError: {e}. Please install the required dependencies.")
-    except Exception as e:
-        print(f"An error occurred: {e}")
-
-if __name__ == "__main__":
-    try:
-        import scikit_learn
-    except ImportError:
-        print("scikit-learn is not installed. Installing now...")
-        import subprocess
-          subprocess.check_call([sys.executable, "-m", "pip", "install", "scikit-learn"])
-        print("scikit-learn installed successfully. Please re-run the script.")
-        sys.exit(1)
-
-    # Define start and end points (latitude, longitude)
-    start_point = (40.748817, -73.985428)  # Example: Empire State Building
-    end_point = (40.730610, -73.935242)  # Exampl
+list = ['ΑΒΑΣ', 'ΑΓΓΕ', 'ΑΓΥΑ', 'ΑΔΕΝ', 'ΑΘΗΝ', 'ΑΘΩΜ', 'ΑΙΓΙ', 'ΑΙΓΝ', 'ΑΚΡΟ', 'ΑΚΤΑ', 'ΑΛΑΛ', 'ΑΛΕΛ', 'ΑΛΕΝ', 'ΑΛΙΑ', 'ΑΜΑΡ', 'ΑΜΥΝ', 'ΑΜΦΙ', 'ΑΝΕΔ', 'ΑΝΛΕ', 'ΑΠΑΝ', 'ΑΡΜΕ', 'ΑΡΝΙ', 'ΑΣΤΕ', 'ΑΥΛΙ', 'ΑΥΛΩ', 'ΑΦΙΔ', 'ΑΧΑΡ', 'ΒΑΣΣ', 'ΒΕΛΕ', 'ΒΕΝΝ', 'ΒΕΡΟ', 'ΒΕΥΗ', 'ΒΟΛΟ', 'ΒΥΡΩ', 'ΓΑΖΩ', 'ΓΑΛΛ', 'ΓΑΤΖ', 'ΔΑΥΛ', 'ΔΕΚΕ', 'ΔΙΑΚ', 'ΔΙΔΥ', 'ΔΙΛΟ', 'ΔΚΑΙ', 'ΔΟΙΡ', 'ΔΟΜΟ', 'ΔΟΞΑ', 'ΔΡΑΜ', 'ΕΔΕΣ', 'ΕΠΙΣ', 'ΖΕΦΥ', 'ΘΕΣΣ', 'ΘΗΒΑ', 'ΘΟΥΡ', 'ΙΑΣΜ', 'ΚΑΒΥ', 'ΚΑΛΑ', 'ΚΑΛΒ', 'ΚΑΛΙ', 'ΚΑΛΠ', 'ΚΑΡΔ', 'ΚΑΣΛ', 'ΚΑΣΣ', 'ΚΑΣΤ', 'ΚΑΤΕ', 'ΚΑΧΡ', 'ΚΕΡΠ', 'ΚΕΦΧ', 'ΚΗΦΙ', 'ΚΙΛΚ', 'ΚΙΡΚ', 'ΚΟΛΡ', 'ΚΟΜΟ', 'ΚΟΡΟ', 'ΚΟΥΛ', 'ΚΡΑΝ', 'ΚΥΨΕ', 'ΛΑΓΙ', 'ΛΑΜΙ', 'ΛΑΡΙ', 'ΛΕΒΑ', 'ΛΕΙΑ', 'ΛΕΠΤ', 'ΛΕΥΚ', 'ΛΙΑΝ', 'ΛΙΒΑ', 'ΛΙΒΕ', 'ΛΙΛΑ', 'ΛΙΤΟ', 'ΛΟΤΒ', 'ΜΑΓΟ', 'ΜΑΔΡ', 'ΜΑΝΔ', 'ΜΑΡΑ', 'ΜΕΓΒ', 'ΜΕΖΟ', 'ΜΕΛΤ', 'ΜΕΣΗ', 'ΜΕΣΟ', 'ΜΕΣΠ', 'ΜΕΣΤ', 'ΜΕΤΑ', 
+'ΜΗΛΕ', 'ΜΟΥΡ', 'ΜΠΛΑ', 'ΜΠΟΖ', 'ΜΠΡΑ', 'ΝΑΟΥ', 'ΝΒΥΣ', 'ΝΕΟΧ', 'ΝΕΠΤ', 'ΝΙΑΜ', 'ΝΙΚΗ', 'ΝΠΟΡ', 'ΝΤΟΥ', 'ΝΦΙΛ', 'ΞΑΝΘ', 'ΞΕΧΑ', 'ΞΥΝΟ', 'ΟΙΝΟ', 'ΟΙΝΦ', 'ΟΛΥΜ', 'ΟΜΑΛ', 'ΟΡΕΣ', 'ΟΡΜΕ', 'ΟΡΦΑ', 'ΠΑΕΡ', 'ΠΑΘΕ', 'ΠΑΙΡ', 'ΠΑΛΦ', 'ΠΑΝΓ', 'ΠΑΝΛ', 'ΠΑΝΧ', 'ΠΑΡΑ', 'ΠΑΡΟ', 'ΠΑΣΠ', 'ΠΑΤΡ', 'ΠΔΟΥ', 'ΠΕΔΙ', 'ΠΕΙΡ', 'ΠΕΠΛ', 'ΠΕΡΝ', 'ΠΕΤΙ', 'ΠΕΤΡ', 'ΠΖΕΥ', 'ΠΗΡΑ', 'ΠΚΗΦ', 'ΠΚΙΑ', 'ΠΚΙΝ', 'ΠΚΟΡ', 'ΠΚΡΩ', 'ΠΛΑΝ', 'ΠΛΕΥ', 'ΠΛΤΥ', 'ΠΜΑΓ', 'ΠΜΕΓ', 'ΠΜΕΤ', 'ΠΝΕΠ', 'ΠΝΕΡ', 'ΠΟΛΘ', 'ΠΟΣΤ', 'ΠΠΑΙ', 'ΠΠΑΛ', 'ΠΠΕΝ', 'ΠΡΑΓ', 'ΠΡΟΜ', 'ΠΡΟΥ', 'ΠΤΑΥ', 'ΠΥΘΙ', 'ΠΥΘΣ', 'ΠΥΡΓ', 'ΠΥΡΟ', 'ΡΑΨΑ', 'ΡΗΓΙ', 'ΡΙΟΝ', 'ΡΟΔΠ', 'ΡΟΔΣ', 'ΣΑΚΚ', 'ΣΑΝΤ', 'ΣΕΡΡ', 'ΣΙΔΗ', 'ΣΙΝΔ', 'ΣΙΤΑ', 'ΣΚΑΧ', 'ΣΚΟΤ', 'ΣΚΥΔ', 'ΣΟΥΦ', 'ΣΟΦΑ', 'ΣΟΦΙ', 'ΣΤΑΥ', 'ΣΤΕΦ', 'ΣΤΡΥ', 'ΣΤΥΛ', 'ΣΥΚΟ', 'ΣΥΝΕ', 'ΣΦΕΝ', 'ΣΦΟΚ', 'ΤΑΝΑ', 'ΤΙΘΟ', 'ΤΟΞΟ', 'ΤΡΙΚ', 'ΤΡΚΛ', 'ΤΥΧΕ', 'ΥΨΗΛ', 'ΦΑΝΑ', 'ΦΕΡΡ', 'ΦΛΩΡ', 'ΦΤΕΛ', 'ΦΥΚΤ', 'ΦΩΤΟ', 'ΧΑΙΡ', 'ΧΑΛΚ', 'ΧΕΙΜ', 'ΧΕΡΣ', 'ΧΣ01', 'ΧΣ21', 'ΧΣ22', 'ΧΣ23', 'ΧΣ40', 'ΧΣ70']
+for i in list:
+    for j in list:
+        if i == j:
+            print(i, j)
+print("done")

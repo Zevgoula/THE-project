@@ -1,0 +1,13 @@
+import networkx as nx
+
+def astar_shortest_path(graph, start, end):
+    """
+    This function finds the shortest path between two nodes using A* algorithm.
+    """
+    try:
+        # Using NetworkX's built-in A* algorithm
+        shortest_path = nx.astar_path(graph, source=start, target=end, heuristic=None, weight='weight')
+        return shortest_path
+    except nx.NetworkXNoPath:
+        print(nx.NetworkXNoPath, "No path found from", start, "to", end)
+        return None

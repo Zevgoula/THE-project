@@ -5,10 +5,11 @@ import random
 
 import Algorithms.linearProgrammingAlgorithm as lp
 import Algorithms.dijkstraAlgorithm as dj
+import Algorithms.bellmanFordAlgorithm as bl
 
 # Load data (assuming data has been loaded correctly)
-stops = pd.read_csv('stops.txt')
-stop_times = pd.read_csv('stop_times.txt')
+stops = pd.read_csv('locations/athens/stops.txt')
+stop_times = pd.read_csv('locations/athens/stop_times.txt')
 
 G = nx.Graph()
 
@@ -25,23 +26,18 @@ for trip_id in stop_times['trip_id'].unique():
         stop_end_id = trip_stop_times.iloc[i + 1]['stop_id']
         G.add_edge(stop_start_id, stop_end_id, weight=10*(random.random()))  # or use distance if available
 
+print("Number of edges:", len(G.edges()))
 # Ensure symmetry in the edges of an undirected graph
 for u, v in G.edges():
-    if not G.has_edge(v, u):
-        G.add_edge(v, u)
-        
+    G.add_edge(v, u)
+print("Number of edges after ensuring symmetry:", len(G.edges()))
+    
 if nx.is_connected(G): print("The graph is connected")
 else: print("The graph is not connected")
 
 if nx.is_directed(G): print("The graph is directed")
 else: print("The graph is undirected")
 
-# Assuming G is your graph object
-components = list(nx.connected_components(G))
-
-# Display the components
-for i, component in enumerate(components):
-    print(f"Component {i+1}: {component}")
 
 # Initialize plot
 pos = {stop['stop_id']: (stop['stop_lon'], stop['stop_lat']) for _, stop in stops.iterrows()}
@@ -115,6 +111,23 @@ def on_click(event, algorithm='lp'):
                     plt.title(f"Shortest path from {start} to {end}")
                 except nx.NetworkXNoPath:
                     print(f"No path between {start} and {end}")
+            elif algorithm == 'bell':
+                path = bl.bellman_ford_shortest_path(G, start, end)
+                try:
+        
+                    path_edges_list = list(zip(shortest_path, shortest_path[1:]))
+                    path_edges = nx.draw_networkx_edges(G, pos, edgelist=path_edges_list, edge_color='red', width=2, ax=ax)
+                    plt.title(f"Shortest path from {start} to {end}")
+                except nx.NetworkXNoPath:
+                    print(f"No path between {start} and {end}")
+            elif algorithm == 'astar':
+                try:
+                    shortest_path = nx.astar_path(G, source=start, target=end, heuristic=None, weight='weight')
+                    path_edges_list = list(zip(shortest_path, shortest_path[1:]))
+                    path_edges = nx.draw_networkx_edges(G, pos, edgelist=path_edges_list, edge_color='red', width=2, ax=ax)
+                    plt.title(f"Shortest path from {start} to {end}")
+                except nx.NetworkXNoPath:
+                    print(f"No path between {start} and {end}")
             else:
                 print(f"Unknown algorithm: {algorithm}")
 
@@ -131,3 +144,6 @@ def on_click(event, algorithm='lp'):
 fig.canvas.mpl_connect('button_press_event', on_click)
 
 plt.show()
+
+if __name__ == '__main__':
+    pass

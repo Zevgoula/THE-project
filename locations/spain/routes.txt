@@ -1,0 +1,19 @@
+route_id,agency_id,route_short_name,route_long_name,route_type
+320,23,,Tafalla-Pamplona/Iruña (autopista),3
+321,23,,Olite/Erriberri - Pamplona/Iruña (autopista),3
+322,23,,Tafalla - Pamplona/Iruña (carretera),3
+323,23,,Marcilla -Tafalla,3
+324,23,,Figarol - Tafalla,3
+325,23,,Rada - Tafalla,3
+326,23,,Mendigorría - Tafalla,3
+327,23,,Miranda de Arga - Tafalla,3
+328,23,,Urbano Tafalla,3
+329,23,,Echagüe - Tafalla,3
+330,23,,Olleta - Tafalla,3
+331,23,,Uzquita - Tafalla,3
+332,23,,Amatriain - Tafalla,3
+333,23,,Ujué/Uxue - Tafalla,3
+334,23,,Puente la Reina/Gares - Campanas,3
+335,23,,Lerín - Larraga,3
+300,9,,Pamplona/Iruña-Soria (por carretera),3
+301,9,,Pamplona/Iruña-Soria (por autopista),3

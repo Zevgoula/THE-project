@@ -1,0 +1,7 @@
+stop_id,stop_code,stop_name,stop_desc,stop_lat,stop_lon,zone_id,stop_url,location_type,parent_station,wheelchair_boarding,stop_timezone
+1,001,Baker Center Bus Hub,On W Mulberry behind Bentley Hall,39.325486,-82.102065,,,,,,
+2,002,Court / President,"Chubb, Lindley, Bentley",39.32646,-82.101373,,,,,,
+3,003,Court / Washington,"Courthouse, City Hall, Chase",39.32935,-82.101105,,,,,,
+4,004,Court / West State,"BP, Casa, Blue Eagle",39.33102,-82.100945,,,,,,
+5,005,Carpenter / Grosvenor,"Carpenter Hall, Family Dollar",39.332147,-82.100124,,,,,,
+6,006,East State / Morris,"AAA, East Elementary",39.333491,-82.09709,,,,,,

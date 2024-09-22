@@ -56,8 +56,8 @@ graph = {
     'F': {'D': 2}
 }
 
-start_node = 'A'
-end_node = 'E'
+start_node = 'E'
+end_node = 'A'
 
 # Measure the execution time
 start_time = time.time()
