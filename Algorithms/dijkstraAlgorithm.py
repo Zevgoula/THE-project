@@ -7,7 +7,7 @@ def dijkstra_shortest_path(G, start, end):
     try:
         # Using NetworkX's built-in Dijkstra algorithm
         shortest_path = nx.dijkstra_path(G, source=start, target=end, weight='weight')
-        return shortest_path
+        return shortest_path, nx.dijkstra_path_length(G, source=start, target=end, weight='weight')
     except nx.NetworkXNoPath:
         print(nx.NetworkXNoPath, "No path found from", start, "to", end)
-        return None
+        return None, None

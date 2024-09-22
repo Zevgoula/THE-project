@@ -7,7 +7,7 @@ def astar_shortest_path(graph, start, end):
     try:
         # Using NetworkX's built-in A* algorithm
         shortest_path = nx.astar_path(graph, source=start, target=end, heuristic=None, weight='weight')
-        return shortest_path
+        return shortest_path, nx.astar_path_length(graph, source=start, target=end, heuristic=None, weight='weight')
     except nx.NetworkXNoPath:
         print(nx.NetworkXNoPath, "No path found from", start, "to", end)
-        return None
+        return None, None

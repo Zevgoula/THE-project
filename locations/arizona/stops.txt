@@ -1,0 +1,69 @@
+stop_id,stop_code,platform_code,stop_name,stop_desc,stop_lat,stop_lon,zone_id,stop_url,location_type,parent_station,stop_timezone,position,direction,wheelchair_boarding
+2384121,103,,Shantz,,32.2300052064338,-110.952667361623,,,0,,America/Phoenix,,,0
+2384122,106,,6th St Garage,,32.227974,-110.954028,,,0,,America/Phoenix,,,0
+2384123,116,,USA Building,,32.2285461,-110.9759852,,,0,,America/Phoenix,,,0
+2384124,117,,9006 Lot,,32.2289547,-110.9777239,,,0,,America/Phoenix,,,0
+2384126,132,,AHSL/ Health Sciences Innovation Building,,32.239699,-110.947355,,,0,,America/Phoenix,,,0
+2384127,202,,Graham/Greenlee North,,32.230456,-110.9506692,,,0,,America/Phoenix,,,0
+2384128,204,,Stewart Observatory East,,32.2332195,-110.9480822,,,0,,America/Phoenix,,,0
+2384131,220,,Gould Simpson,,32.2300194407428,-110.954633139347,,,0,,America/Phoenix,,,0
+2384133,201,,Park Student Union West,,32.228998,-110.9568501,,,0,,America/Phoenix,,,0
+2384134,301,,Manzanita/Mohave East,,32.234435,-110.956674,,,0,,America/Phoenix,,,0
+2384135,208,,Highland Garage North,,32.2374068173036,-110.949947784797,,,0,,America/Phoenix,,,0
+2384136,302,,Old Main,,32.2319959,-110.9547137,,,0,,America/Phoenix,,,0
+2384138,104,,4th and Park,,32.230501,-110.956866,,,0,,America/Phoenix,,,0
+2384139,118,,McClelland Hall North,,32.2373658,-110.9545537,,,0,,America/Phoenix,,,0
+2384140,120,,Education Building South,,32.2337534453404,-110.949707080518,,,0,,America/Phoenix,,,0
+2384141,107,,Campus Health West,,32.2288705,-110.9510676,,,0,,America/Phoenix,,,0
+2384142,108,,Tyndall Garage,,32.2302109939515,-110.957829967283,,,0,,America/Phoenix,,,0
+2384143,122,,Student Union,,32.233223,-110.952689,,,0,,America/Phoenix,,,0
+2384144,123,,MLK Building,,32.2347985,-110.9516202,,,0,,America/Phoenix,,,0
+2384145,124,,Learning Services Building South,,32.2347969677694,-110.949051448743,,,0,,America/Phoenix,,,0
+2384146,125,,Optical Science,,32.2316930766027,-110.947617623058,,,0,,America/Phoenix,,,0
+2384147,127,,9008 Lot,,32.2176728,-110.9389648,,,0,,America/Phoenix,,,0
+2384148,131,,Helen East,,32.2376886447612,-110.952404116124,,,0,,America/Phoenix,,,0
+2384149,133,,Adams East,,32.2409024456029,-110.952419815471,,,0,,America/Phoenix,,,0
+2384150,134,,Linden East,,32.2450335512314,-110.952463726404,,,0,,America/Phoenix,,,0
+2384151,135,,Copper East,,32.2542044,-110.9524276,,,0,,America/Phoenix,,,0
+2384153,137,,9007 Lot,,32.2642192891654,-110.952427039541,,,0,,America/Phoenix,,,0
+2384154,138,,Stewart Observatory West,,32.2331498949778,-110.948172304783,,,0,,America/Phoenix,,,0
+2384155,203,,Main Library West,,32.2314306206957,-110.948155297458,,,0,,America/Phoenix,,,0
+2384156,209,,Copper West,,32.2537288,-110.9526582,,,0,,America/Phoenix,,,0
+2384157,210,,Linden West,,32.2445318837141,-110.95254632773,,,0,,America/Phoenix,,,0
+2384158,211,,Adams West,,32.2403343485228,-110.952543669057,,,0,,America/Phoenix,,,0
+2384159,212,,Helen West,,32.2375332465014,-110.952520319663,,,0,,America/Phoenix,,,0
+2384161,303,,Park and James Rogers,,32.233085,-110.9565934,,,0,,America/Phoenix,,,0
+2384162,307,,Safeway,,32.2205357,-110.9424854,,,0,,America/Phoenix,,,0
+2384163,129,,Highland Garage South,,32.2372041,-110.950145,,,0,,America/Phoenix,,,0
+2384164,101,,Main Library East,,32.231492800228,-110.94810247283,,,0,,America/Phoenix,,,0
+2384166,,,Bio 5 West,,32.2378761506581,-110.948331481121,,,0,,America/Phoenix,,,0
+2384167,304,,First and Cherry East,,32.2350765,-110.9480336,,,0,,America/Phoenix,,,0
+2384168,,,Cherry and Fourth North,,32.2305116,-110.9484521,,,0,,America/Phoenix,,,0
+2384169,,,Cherry and Fourth South,,32.2303845,-110.9484681,,,0,,America/Phoenix,,,0
+2384170,,,Graham/Greenlee South,,32.2303505,-110.9505656,,,0,,America/Phoenix,,,0
+2384173,,,Marshall East,,32.2322881,-110.9566569,,,0,,America/Phoenix,,,0
+2384174,,,Marshall West,,32.2323471,-110.9568608,,,0,,America/Phoenix,,,0
+2384175,,,McClelland Hall South,,32.2372296,-110.9548813,,,0,,America/Phoenix,,,0
+2384177,,,CVS North,,32.2317708,-110.9588671,,,0,,America/Phoenix,,,0
+2384178,,,Jacobus North,,32.2317618,-110.9619302,,,0,,America/Phoenix,,,0
+2384179,,,Jacobus South,,32.2316166,-110.9619033,,,0,,America/Phoenix,,,0
+2384180,,,Time Market North,,32.2317345,-110.9651649,,,0,,America/Phoenix,,,0
+2384181,,,Time Market South,,32.2315893,-110.9646124,,,0,,America/Phoenix,,,0
+2384182,,,South Stadium Garage,,32.2267202,-110.9467649,,,0,,America/Phoenix,,,0
+2384183,,,Rec Center,,32.226584,-110.9508097,,,0,,America/Phoenix,,,0
+2384184,,,Adelaide East,,32.2600214889182,-110.952365996092,,,0,,America/Phoenix,,,0
+2384185,,,Hedrick East,,32.2627675392201,-110.952346729962,,,0,,America/Phoenix,,,0
+2574449,,,El Con Center,This stop is utilized twice a night,32.2234090672136,-110.919471179285,,,0,,America/Phoenix,,,0
+2574450,,,Bio 5 East,,32.238176,-110.948241,,,0,,America/Phoenix,,,0
+2574452,,,Learning Services Building North,,32.234926,-110.949072,,,0,,America/Phoenix,,,0
+2574494,8572,,Park Student Union East,,32.2291541860293,-110.956669361974,,,0,,America/Phoenix,,,0
+2574495,,,Manzanita/Mohave West,,32.234429,-110.95688,,,0,,America/Phoenix,,,0
+2574496,,,Honors Village South,,32.2385788258211,-110.955708620009,,,0,,America/Phoenix,,,0
+2574498,,,Adelaide West,,32.2600143494044,-110.952484933377,,,0,,America/Phoenix,,,0
+2574499,,,9004 Lot,,32.2717141860996,-110.950763923076,,,0,,America/Phoenix,,,0
+2574500,403,,Harvill South,,32.2337382737852,-110.954423210345,,,0,,America/Phoenix,,,0
+2574551,,,USB Building,,32.2329543261585,-110.958795341854,,,0,,America/Phoenix,,,0
+2574552,,,Hillenbrand Stadium,,32.2337605551154,-110.946655868264,,,0,,America/Phoenix,,,0
+2751948,,,Babcock,,32.237305,-110.945647,,,0,,America/Phoenix,,,0
+2751959,,,Campus Health East,,32.2288733065772,-110.950978287246,,,0,,America/Phoenix,,,0
+2751960,,,Honors Village North,,32.238631083499,-110.956221136939,,,0,,America/Phoenix,,,0

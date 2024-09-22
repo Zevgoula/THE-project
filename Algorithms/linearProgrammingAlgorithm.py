@@ -9,11 +9,6 @@ def lp_shortest_path(graph, start, end):
     edges = list(graph.edges(data=True))
     edge_vars = pulp.LpVariable.dicts("Edge", [(u, v) for u, v, _ in edges] + [(v, u) for u, v, _ in edges], 0, 1, pulp.LpBinary)
 
-    # Debug: Check edges and edge variables
-    # print("Edges: ", edges)
-    # print("Edge Variables: ", edge_vars)
-    # print("nodes", graph.nodes(), "\nnodes")
-    # Set the objective function to minimize the total weight of the selected edges
    # Modify the objective function to handle both directions
     prob += pulp.lpSum([edge_vars[(u, v)] * data.get('weight', 1) for u, v, data in edges] +
                     [edge_vars[(v, u)] * data.get('weight', 1) for u, v, data in edges]), "Total Weight of Path"
@@ -21,20 +16,9 @@ def lp_shortest_path(graph, start, end):
 
     # Add constraints for flow conservation at each node
     nodes = graph.nodes()
-    for node in nodes:
-        print("node: ", node)
-    for edge1 in edges:
-        print("edge: ", edge1)
-    for edge in edge_vars:
-        print("edge_vars: ", edge)
 
     for node in nodes:
-    #     if node == start:
-    #         prob += pulp.lpSum([edge_vars[node, u]- edge_vars[u, node] for u, v, _ in edges if u == node]) == 1
-    #     elif node == end:
-    #         prob += pulp.lpSum([edge_vars[node, u]- edge_vars[u, node] for u, v, _ in edges if u == node]) == -1
-    #     else:
-    #         prob += pulp.lpSum([edge_vars[node, u]- edge_vars[u, node] for u, v, _ in edges if u == node]) == 0
+
 
         if node == start:
             prob += pulp.lpSum([edge_vars[(u, v)] for u, v in edge_vars if u == node]) == 1
@@ -46,11 +30,11 @@ def lp_shortest_path(graph, start, end):
 
 
     # Solve the problem
-    print("Problem: ", prob)
-    prob.solve()
+    # print("Problem: ", prob.objective, prob.constraints )
+    prob.solve(pulp.PULP_CBC_CMD(msg=False))
 
     # Debug: Check the status of the solution
-    print("Solver Status: ", pulp.LpStatus[prob.status])
+    # print("Solver Status: ", pulp.LpStatus[prob.status])
 
     # Extract the optimal path if it exists
     if pulp.LpStatus[prob.status] == "Optimal":
@@ -77,9 +61,11 @@ def lp_shortest_path(graph, start, end):
         # Check if we reached the end
         if current == end:
             total_weight = sum(graph[u][v]['weight'] for u, v in zip(path_nodes[:-1], path_nodes[1:]))
-            print("Total Weight: ", total_weight)
-            print("Path Nodes: ", path_nodes)
+            
             return path_nodes, total_weight
         else:
             print("Path does not reach the end node.")
             return None, None
+    else:
+        print("No optimal solution found.")
+        return None, None
