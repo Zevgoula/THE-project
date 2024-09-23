@@ -90,6 +90,17 @@ def analyze_aggregated_results(aggregated_data):
     summary = df.agg(['mean', 'min', 'max']).T
     summary = summary * 1000  # Convert to milliseconds
     print(summary)
+    
+    # Plot a single combined graph for the mean
+    plt.figure(figsize=(12, 8))
+    bar_plot = summary['mean'].plot(kind='bar', color=['blue', 'orange', 'green', 'red'])
+
+    # Annotate each bar with the mean value
+    for p in bar_plot.patches:
+        bar_plot.annotate(f'{p.get_height():.2f} ms', 
+                          (p.get_x() + p.get_width() / 2., p.get_height()), 
+                          ha='center', va='baseline', 
+                          xytext=(0, 5), textcoords='offset points')
 
     # Plot a single combined graph
     plt.figure(figsize=(12, 8))
