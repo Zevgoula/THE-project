@@ -15,7 +15,7 @@ def main():
     print("--------------------Welcome to Shortest Path Finder--------------------")
     print("\nWould you like to find the shortest paths (1) or get statistics? (2)")
     print("\nChoose the location you want to find the shortest path in:")
-    print("1. ATHENS\n2. THESSALONIKI\n3. ITALY, SARDINIA\n4. SPAIN, MADRID\n5. CANADA, VANCOUVER")
+    print("1. ATHENS, USA\n2. THESSALONIKI, GREECE\n3.SARDINIA, ITALY\n4. MADRID, SPAIN\n5. VANCOUVER, CANADA\n6. ALABAMA, USA")
 
     # Get location input
     location_map = {
@@ -23,7 +23,8 @@ def main():
         "2": "thessaloniki",
         "3": "italy",
         "4": "spain",
-        "5": "canada"
+        "5": "canada",
+        "6": "california"
     }
     
     algorithm_map = {
