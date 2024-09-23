@@ -35,7 +35,6 @@ def compare_algorithms(graph, unique_pairs):
         time0 = timeit.default_timer()
         paths['Dijkstra'], weights['Dijkstra'] = dj.dijkstra_shortest_path(graph, start, end)
         if paths['Dijkstra'] is None:
-            print(f"No path found for {start} to {end}. Skipping comparison.")
             continue
         time1 = timeit.default_timer()
 
@@ -175,7 +174,7 @@ def main(locations, n):
 if __name__ == '__main__':
     print("Running stats.py")
     print("Choose the graph size to analyze:")
-    print("1. Small (less than 100 edges)\n2. Medium (100-500 edges)\n3. Large (500-1000 edges)\n4. Very Large (1000+ edges)")
+    print("1. Small (less than 100 edges)\n2. Medium (100-500 edges)\n3. Large (500-1000 edges)\n4. Very Large (1000+ edges)\n5. All")
     
     chosen_size = input("Enter the number of the graph size: ")
     if chosen_size == "1":
@@ -186,6 +185,13 @@ if __name__ == '__main__':
         main(large_locations, 100)
     elif chosen_size == "4":
         main(huge_locations, 200)
+    elif chosen_size == "5":
+        print("How many paths do you want to analyze for each location? (the smaller the number, the faster the analysis)")
+        n = int(input("Enter the number of paths: "))
+        if n<=10:
+            print("Please enter a number greater than 10")
+            sys.exit(1)
+        main(small_locations + medium_locations + large_locations + huge_locations, n)
     else:
         print("Invalid graph size")
         sys.exit(1)
