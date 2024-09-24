@@ -23,24 +23,25 @@ locations = small_locations + medium_locations + large_locations # + huge_locati
 def handle_extended_hours(time_str) -> timedelta:
     """Handle time formatting for hours that exceed 24 hours."""
     hours, minutes, seconds = map(int, time_str.split(':'))
-    if hours >= 24:
-        return timedelta(days=1, hours=hours - 24, minutes=minutes, seconds=seconds)
+    if hours >= 24: return timedelta(days=1, hours=hours - 24, minutes=minutes, seconds=seconds)
     return timedelta(hours=hours, minutes=minutes, seconds=seconds)
 
 def create_graph(location) -> nx.Graph:
     """Load stop and stop_times data for a given location."""
     G = nx.Graph()
+    # Load stop_times data
     try:
-        stops = pd.read_csv(f'locations/{location}/stops.txt')  # Replace with actual file path
-        stop_times = pd.read_csv(f'locations/{location}/stop_times.txt')  # Replace with actual file path
+        stop_times = pd.read_csv(f'locations/{location}/stop_times.txt')  
         print(f"Data loaded successfully for {location}")
     except Exception as e:
         print(f"Error loading data: {e}")
         sys.exit(1)
 
+    # Create a graph from the stop_times data
     for trip_id in stop_times['trip_id'].unique():
         trip_stop_times = stop_times[stop_times['trip_id'] == trip_id].sort_values('stop_sequence')
 
+        # Add edges between stops
         for i in range(len(trip_stop_times) - 1):
             start_id = trip_stop_times.iloc[i]['stop_id']
             end_id = trip_stop_times.iloc[i + 1]['stop_id']
@@ -65,7 +66,7 @@ def load_grapghs(locations):
         graphs[location] = G, num_edges, num_nodes
     return graphs
 
-def create_unique_couples(G: nx.graph, num_couples=100):
+def create_unique_couples(G: nx.graph, num_couples=10):
     """Create unique node pairs for testing."""
     nodes = list(G.nodes())
     unique_couples = random.sample([(node1, node2) for node1 in nodes for node2 in nodes if (node1 != node2 and nx.has_path(G, node1, node2))], num_couples)
@@ -154,7 +155,7 @@ def plot_time_vs_edges(mean_times):
 
     for (graph_name, algo), time in mean_times.items():
         # Get the number of edges using the tuple index
-        num_edges = get_graph_stuff_from_name(graph_name)[1]
+        num_edges = get_graph_stuff_from_name(graph_name)[0]
 
         if num_edges not in edges:
             edges.append(num_edges)
